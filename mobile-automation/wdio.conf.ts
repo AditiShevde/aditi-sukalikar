@@ -6,8 +6,9 @@ import { buildAndroidAppCapabilities } from './tests/support/hooks.js';
 
 const configDir = dirname(fileURLToPath(import.meta.url));
 loadEnv({ path: join(configDir, '.env') });
-const defaultStepTimeoutMs = 60000;
-const defaultWaitForTimeoutMs = 10000;
+const defaultStepTimeoutMs = Number(process.env.WDIO_STEP_TIMEOUT_MS) || 60000;
+const defaultWaitForTimeoutMs = Number(process.env.WDIO_WAITFOR_TIMEOUT_MS) || 10000;
+const appiumPort = Number(process.env.APPIUM_PORT) || 4723;
 
 export const config: WebdriverIO.Config = {
     //
@@ -18,7 +19,7 @@ export const config: WebdriverIO.Config = {
     runner: 'local',
     tsConfigPath: './tsconfig.json',
 
-    port: 4723,
+    port: appiumPort,
     //
     // ==================
     // Specify Test Files
