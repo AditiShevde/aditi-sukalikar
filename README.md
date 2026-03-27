@@ -1,6 +1,6 @@
 # aditi-sukalikar-N26-Assignment
 
-This repository groups **quality assurance work**: exploratory testing notes, automated API tests, automated Android UI tests, and optional **Allure** HTML reports. Each major area lives in its own top-level folder so you can clone once and work in the slice you need.
+This repository groups **quality assurance work**: exploratory testing notes, automated API tests, automated Android UI tests, and **Allure** HTML reports. Each major area lives in its own top-level folder so you can clone once and work in the slice you need.
 
 ---
 
