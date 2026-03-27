@@ -1,49 +1,13 @@
 import { config as loadEnv } from 'dotenv';
-import { dirname, isAbsolute, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { afterScenario } from './tests/support/hooks.js';
+import { buildAndroidAppCapabilities } from './tests/support/hooks.js';
 
 const configDir = dirname(fileURLToPath(import.meta.url));
 loadEnv({ path: join(configDir, '.env') });
 const defaultStepTimeoutMs = 60000;
 const defaultWaitForTimeoutMs = 10000;
-
-function buildAndroidAppCapabilities(): WebdriverIO.Capabilities {
-    const androidAppPath = process.env.ANDROID_APP_PATH;
-    const androidPackage = process.env.ANDROID_APP_PACKAGE;
-    const androidActivity = process.env.ANDROID_APP_ACTIVITY;
-
-    if (!androidAppPath && !(androidPackage && androidActivity)) {
-        throw new Error(
-            [
-                'Native Android: create mobile-automation/.env (see .env.example) or export vars:',
-                'ANDROID_APP_PATH to a .apk, or ANDROID_APP_PACKAGE + ANDROID_APP_ACTIVITY if the app is installed.',
-                'Optional: ANDROID_UDID, ANDROID_DEVICE_NAME, ANDROID_PLATFORM_VERSION, ANDROID_NO_RESET=1',
-                'Shell exports override .env when the same variable is set in both.'
-            ].join('\n')
-        );
-    }
-
-    const caps: WebdriverIO.Capabilities = {
-        platformName: 'Android',
-        'appium:automationName': 'UiAutomator2',
-        'appium:udid': process.env.ANDROID_UDID ?? 'RZCX50ZLM0X',
-        'appium:deviceName': process.env.ANDROID_DEVICE_NAME ?? 'Android device',
-        'appium:platformVersion': process.env.ANDROID_PLATFORM_VERSION ?? '16',
-        'appium:autoGrantPermissions': true,
-        'appium:noReset': process.env.ANDROID_NO_RESET === '1'
-    };
-
-    if (androidAppPath) {
-        caps['appium:app'] = isAbsolute(androidAppPath)
-            ? androidAppPath
-            : resolve(process.cwd(), androidAppPath);
-    } else {
-        caps['appium:appPackage'] = androidPackage!;
-        caps['appium:appActivity'] = androidActivity!;
-    }
-
-    return caps;
-}
 
 export const config: WebdriverIO.Config = {
     //
@@ -167,7 +131,10 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        ['allure', { outputDir: 'allure-results' }]
+    ],
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -188,7 +155,7 @@ export const config: WebdriverIO.Config = {
         // <boolean> hide source uris
         source: true,
         // <boolean> fail if there are any undefined or pending steps
-        strict: false,
+        strict: true,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '',
         // <number> timeout for step definitions
@@ -197,6 +164,7 @@ export const config: WebdriverIO.Config = {
         ignoreUndefinedDefinitions: false
     },
 
+    afterScenario,
 
     //
     // =====

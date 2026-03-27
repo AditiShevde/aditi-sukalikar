@@ -1,0 +1,8 @@
+node_modules
+allure-report
+allure-results
+.env
+.cursor
+.DS_Store
+package-lock.json
+.vscode

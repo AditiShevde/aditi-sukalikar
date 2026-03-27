@@ -25,9 +25,15 @@ Feature: Monefy Android - smoke flows
     Then I select category "Deposits"
     Then the balance should update on dashboard "0"
 
-  Scenario: User edits and deletes a transaction
+
+  Scenario: User edits a transaction
     When I tap balance
     Then I tap on "Deposits"
-    Then I tap on first transaction item 
+    Then I tap on first transaction item
     Then I edit amount as "200" and save
-    Then I Delete the edited transaction
+    Then I expect balance to be "100"
+
+  Scenario: User deletes a transaction
+    Then I tap on "Deposits"
+    Then I tap on first transaction item
+    Then I tap on delete

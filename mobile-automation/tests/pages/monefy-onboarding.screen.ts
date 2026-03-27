@@ -1,20 +1,21 @@
 import { $ } from '@wdio/globals';
+import { monefyId } from '../config/monefy-app.js';
 
 export class MonefyOnboardingScreen {
     private get continueButton() {
-        return $('id=com.monefy.app.lite:id/buttonContinue');
+        return $(monefyId('buttonContinue'));
     }
 
     private get claimOfferButton() {
-        return $('id=com.monefy.app.lite:id/buttonPurchase');
+        return $(monefyId('buttonPurchase'));
     }
 
     private get closeButton() {
-        return $('id=com.monefy.app.lite:id/buttonClose');
+        return $(monefyId('buttonClose'));
     }
 
     async tapContinue(): Promise<void> {
-        await (await this.continueButton).click();
+        await this.continueButton.click();
     }
 
     async tapContinueTimes(count: number): Promise<void> {
@@ -24,11 +25,10 @@ export class MonefyOnboardingScreen {
     }
 
     async waitForClaimOffer(): Promise<void> {
-        await (await this.claimOfferButton).waitForDisplayed();
+        await this.claimOfferButton.waitForDisplayed();
     }
 
     async closeOffer(): Promise<void> {
-        await (await this.closeButton).click();
+        await this.closeButton.click();
     }
 }
-
