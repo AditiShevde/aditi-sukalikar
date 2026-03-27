@@ -13,7 +13,9 @@ export function createPetPayload(overrides: Partial<PetPayload> = {}): PetPayloa
       id: faker.number.int({ min: 1, max: 10_000 }),
       name: `cat-${faker.word.noun()}`,
     },
-    photoUrls: overrides.photoUrls ?? [`https://example.test/${faker.string.alphanumeric(10)}.jpg`],
+    photoUrls:
+      overrides.photoUrls ??
+      [`${process.env.PET_PHOTO_URL_BASE ?? 'https://example.test'}/${faker.string.alphanumeric(10)}.jpg`],
     tags: overrides.tags ?? [
       {
         id: faker.number.int({ min: 1, max: 10_000 }),
