@@ -6,7 +6,10 @@
   "scripts": {
     "test": "playwright test",
     "test:api": "playwright test tests/api",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "allure:generate": "allure generate --clean",
+    "allure:open": "allure open",
+    "allure:serve": "allure serve"
   },
   "keywords": [],
   "author": "",
