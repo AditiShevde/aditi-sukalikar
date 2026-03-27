@@ -1,0 +1,21 @@
+{
+  "name": "api-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.6.0"
+  }
+}
