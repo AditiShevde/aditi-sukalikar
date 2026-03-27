@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.TextView[@resource-id=\"com.monefy.app.lite:id/textViewCategoryName\" and @text=\"Deposits\"]/ancestor::android.widget.RelativeLayout[1]"
+}

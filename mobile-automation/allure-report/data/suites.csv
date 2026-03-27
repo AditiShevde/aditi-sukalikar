@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3825","User deletes a transaction","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
+"","11595","User edits a transaction","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
+"","10862","User starts adding an expense","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
+"","5901","User completes onboarding","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
+"","9019","User starts adding an income","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
+"","133","App session is active","Monefy Android - smoke flows","2026-03-27","passed","2026-03-27","","","",""
