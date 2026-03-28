@@ -6,7 +6,7 @@ End-to-end tests for the **Monefy** Android app using **WebdriverIO**, **Appium*
 
 ## What this solution does
 
-- Automates smoke flows: app launch, onboarding, expense/income entry, editing and deleting transactions.
+- Automates smoke flows: app launch, onboarding, expense and income entry, editing and deleting transactions.
 - Runs against a **real Android device or emulator** — you bring the hardware; the runner starts **Appium** for you on port **4723** via `@wdio/appium-service`.
 - Reads device and app settings from `**mobile-automation/.env`** (or equivalent environment variables), so the same codebase works for CI, an emulator, or a physical phone without editing code.
 
@@ -15,7 +15,7 @@ End-to-end tests for the **Monefy** Android app using **WebdriverIO**, **Appium*
 ## Tech stack and why it was chosen
 
 
-| Piece                | Choice                          | Rationale                                                                                                                  |
+| Area                 | Choice                          | Reason                                                                                                                     |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Test runner / client | **WebdriverIO v9**              | Mature WebDriver client with first-class **Appium** integration, solid docs, and a plugin ecosystem (reporters, services). |
 | Mobile bridge        | **Appium 3** + **UiAutomator2** | Standard way to drive native Android UI; UiAutomator2 is stable on modern API levels.                                      |
@@ -103,7 +103,7 @@ npm run android:emulator
 
 ### 2. Run the suite
 
-From `**mobile-automation**`:
+From `**mobile-automation`**:
 
 ```bash
 npm run wdio

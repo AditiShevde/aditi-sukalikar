@@ -1,6 +1,6 @@
 # aditi-sukalikar-N26-Assignment
 
-This repository groups **quality assurance work**: exploratory testing notes, automated API tests, automated Android UI tests, and **Allure** HTML reports. Each major area lives in its own top-level folder so you can clone once and work in the slice you need.
+This repository groups **quality assurance work**: exploratory testing charters, automated API tests, automated Android UI tests, and **Allure** HTML reports. Each major area lives in its own top-level folder so you can clone once and work in the slice you need.
 
 ---
 
@@ -41,7 +41,7 @@ What you need depends on which folder you use:
 
 ### Exploratory testing (`exploratory-testing/`)
 
-Contains **written exploratory testing outputs**, for example structured session reports (charters, findings, device notes). Start with the Markdown file(s) in that directory—currently `report.md` documents an exploratory session on the Monefy Android app.
+Contains **written exploratory testing outputs**, for example structured session reports (charters, findings). Start with the Markdown file(s) in that directory—currently `report.md` documents an exploratory session on the Monefy Android app.
 
 ---
 
